@@ -47,16 +47,30 @@ const Item: React.FC<ItemProps> = ({ data }) => {
           </div>
         </div>
         <div className="item-right-pane">
-          <div className="item-info">
-            <p>Retailer: {data.retailer}</p>
-          </div>
-          <div className="details">
-            <h4>Details:</h4>
-            <ul>
-              {data.details.map((detail, index) => (
-                <li key={index}>{detail}</li>
-              ))}
-            </ul>
+          <div className="sales-table">
+            <h4>Sales History</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Week Ending</th>
+                  <th>Retail Sales</th>
+                  <th>Wholesale Sales</th>
+                  <th>Units Sold</th>
+                  <th>Retailer Margin</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.sales.map((sale, index) => (
+                  <tr key={index}>
+                    <td>{sale.weekEnding}</td>
+                    <td>${sale.retailSales.toLocaleString()}</td>
+                    <td>${sale.wholesaleSales.toLocaleString()}</td>
+                    <td>{sale.unitsSold.toLocaleString()}</td>
+                    <td>${sale.retailerMargin.toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

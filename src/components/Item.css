@@ -66,4 +66,33 @@
 
 .details li {
   margin: 8px 0;
+}
+
+.sales-table {
+  margin-top: 20px;
+}
+
+.sales-table h4 {
+  margin-bottom: 15px;
+}
+
+.sales-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sales-table th,
+.sales-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.sales-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.sales-table tr:hover {
+  background-color: #f8f9fa;
 } 
