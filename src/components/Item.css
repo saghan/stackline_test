@@ -1,0 +1,26 @@
+.item-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.item-details {
+  margin-top: 20px;
+}
+
+.tag {
+  background-color: #f0f0f0;
+  padding: 4px 8px;
+  margin: 4px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.details li {
+  margin: 8px 0;
+} 
