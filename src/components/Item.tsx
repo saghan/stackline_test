@@ -1,5 +1,6 @@
 import React from 'react';
 import './Item.css';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface ItemData {
   id: string;
@@ -29,6 +30,12 @@ interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ data }) => {
+  // Format the date to show only month
+  const formattedSalesData = data.sales.map(sale => ({
+    ...sale,
+    month: new Date(sale.weekEnding).toLocaleString('default', { month: 'short' })
+  }));
+
   return (
     <div className="item">
       <div className="item-layout">
@@ -47,8 +54,24 @@ const Item: React.FC<ItemProps> = ({ data }) => {
           </div>
         </div>
         <div className="item-right-pane">
+          <div className="sales-graph">
+            <h4>Retail Sales</h4>
+            <ResponsiveContainer width="100%" height={400}>
+              <LineChart data={formattedSalesData}>
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
+                <Line 
+                  type="monotone" 
+                  dataKey="unitsSold" 
+                  stroke="#8884d8" 
+                  strokeWidth={2}
+                  dot={false}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
           <div className="sales-table">
-            <h4>Sales History</h4>
             <table>
               <thead>
                 <tr>
